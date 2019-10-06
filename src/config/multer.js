@@ -38,10 +38,10 @@ const storageTypes = {
 
 module.exports = {
     dest: path.resolve(__dirname, '..', '..', 'tmp', 'uploads'),
-    storage: storageTypes[process.env.STORAGE_TYPE],
-    limits:{
-        fileSize: 3 * 1024 * 1024,
-    },
+    storage: storageTypes[process.env.STORAGE_TYPE]
+    // limits:{
+    //     fileSize: 3 * 1024 * 1024,
+    // },
     // fileFilter:(req, file, cb) => {
     //     const allowedMimes = [
     //         'audio/x-flac',
