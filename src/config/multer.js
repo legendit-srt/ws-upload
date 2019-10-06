@@ -42,18 +42,18 @@ module.exports = {
     limits:{
         fileSize: 3 * 1024 * 1024,
     },
-    fileFilter:(req, file, cb) => {
-        const allowedMimes = [
-            'audio/x-flac',
-            'audio/mp3',
-            'audio/mpeg',
-            'video/mp4'
-        ];
+    // fileFilter:(req, file, cb) => {
+    //     const allowedMimes = [
+    //         'audio/x-flac',
+    //         'audio/mp3',
+    //         'audio/mpeg',
+    //         'video/mp4'
+    //     ];
 
-        if(allowedMimes.includes(file.mimetype)) {
-            cb(null, true);
-        } else {
-            cb(new Error('Invalid file type.'));
-        }
-    }
+    //     if(allowedMimes.includes(file.mimetype)) {
+    //         cb(null, true);
+    //     } else {
+    //         cb(new Error('Invalid file type.'));
+    //     }
+    // }
 };
