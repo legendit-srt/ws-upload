@@ -28,7 +28,8 @@ const storageTypes = {
             crypto.randomBytes(16, (err, hash) => {
                 if(err) cb(err);
 
-                const fileName = `${hash.toString('hex')}-${file.originalname}`;
+                // const fileName = `${hash.toString('hex')}-${file.originalname}`;
+                const fileName = `${file.originalname}`;
                 
                 cb(null, fileName);
             });
@@ -38,22 +39,22 @@ const storageTypes = {
 
 module.exports = {
     dest: path.resolve(__dirname, '..', '..', 'tmp', 'uploads'),
-    storage: storageTypes[process.env.STORAGE_TYPE]
-    // limits:{
-    //     fileSize: 3 * 1024 * 1024,
-    // },
-    // fileFilter:(req, file, cb) => {
-    //     const allowedMimes = [
-    //         'audio/x-flac',
-    //         'audio/mp3',
-    //         'audio/mpeg',
-    //         'video/mp4'
-    //     ];
+    storage: storageTypes[process.env.STORAGE_TYPE],
+    limits:{
+        fileSize: 3 * 1024 * 1024,
+    },
+    fileFilter:(req, file, cb) => {
+        const allowedMimes = [
+            'audio/x-flac',
+            'audio/mp3',
+            'audio/mpeg',
+            'video/mp4'
+        ];
 
-    //     if(allowedMimes.includes(file.mimetype)) {
-    //         cb(null, true);
-    //     } else {
-    //         cb(new Error('Invalid file type.'));
-    //     }
-    // }
+        if(allowedMimes.includes(file.mimetype)) {
+            cb(null, true);
+        } else {
+            cb(new Error('Invalid file type.'));
+        }
+    }
 };
