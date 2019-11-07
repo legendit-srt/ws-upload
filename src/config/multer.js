@@ -47,7 +47,7 @@ module.exports = {
         const allowedMimes = [
             'audio/x-flac',
             'audio/mp3',
-            'audio/wav',
+            'audio/mpeg',
             'video/mp4'
         ];
 
